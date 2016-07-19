@@ -16,11 +16,83 @@ namespace TestProgrammation
             //Day3();
             //Day4();
             //Day5();
-            Day6();
+            //Day6();
+            //Day7();
+            //Day8();
+            Day9();
             Console.Read();
         }
 
-        static void Day6()
+        private static void Day9()
+        {
+            //factorial
+            Console.WriteLine(Factorial(int.Parse(Console.ReadLine())));
+        }
+        private static int Factorial(int n)
+        {
+            if (n > 1)
+                return n * Factorial(n - 1);
+            else return 1;
+               
+        }
+
+        private static void Day8()
+        {
+            int N = int.Parse(Console.ReadLine());
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            for (int i = 0; i < N; i++)
+            {
+                string entry = Console.ReadLine();
+                dic.Add(entry.Split(' ')[0], entry.Split(' ')[1]);
+
+            }
+            bool test = true;
+            
+            while (test == true)
+            {
+                string query = Console.ReadLine();
+                if (!string.IsNullOrEmpty(query))
+                {
+                    if (dic.ContainsKey(query))
+                    {
+                        Console.WriteLine(query + "=" + dic[query]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not found");
+                    }
+                }
+                else test = false;
+                      
+            }
+        
+        }
+
+        private static void Day6()
+        {
+            int testCases = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < testCases; i++)
+            {
+                string s = Console.ReadLine();
+                string odd = "";
+                string even = "";
+                for (int j = 0; j < s.Length; j++)
+                {
+                    if (j%2 !=0)//odd
+                    {
+                        odd += s[j];
+                    }
+                    else //even
+                    {
+                        even += s[j];
+                    }
+                }
+                Console.WriteLine(even + " " + odd);
+            }
+        }
+
+        static void Day7()
         {
             int n = Convert.ToInt32(Console.ReadLine());
             string[] arr_temp = Console.ReadLine().Split(' ');
