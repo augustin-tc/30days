@@ -21,8 +21,29 @@ namespace TestProgrammation
             //Day8();
             //Day9();
             //Day10();
-            Day11();
+            //Day11();
+            Day12();
             Console.Read();
+        }
+
+        private static void Day12()
+        {
+            string[] inputs = Console.ReadLine().Split();
+            string firstName = inputs[0];
+            string lastName = inputs[1];
+            int id = Convert.ToInt32(inputs[2]);
+            int numScores = Convert.ToInt32(Console.ReadLine());
+            inputs = Console.ReadLine().Split();
+            int[] scores = new int[numScores];
+            for (int i = 0; i < numScores; i++)
+            {
+                scores[i] = Convert.ToInt32(inputs[i]);
+            }
+
+            Day12.Student s = new Day12.Student(firstName, lastName, id, scores);
+            s.printPerson();
+            Console.WriteLine("Grade: " + s.calculate() + "\n");
+
         }
 
         private static void Day11()
@@ -30,11 +51,42 @@ namespace TestProgrammation
             int[][] arr = new int[6][];
             for (int arr_i = 0; arr_i < 6; arr_i++)
             {
-                string[] arr_temp = "1 1 1 0 0 0".Split(' ');//Console.ReadLine().Split(' ');
+               string[] arr_temp = "1 1 1 0 0 0".Split(' ');
+            //string[] arr_temp = Console.ReadLine().Split(' ');
                 arr[arr_i] = Array.ConvertAll(arr_temp, Int32.Parse);
 
             }
 
+            arr[0] = Array.ConvertAll("-1 -1 0 -9 -2 -2".Split(' '), Int32.Parse);
+            arr[1] = Array.ConvertAll("-2 -1 -6 -8 -2 -5".Split(' '), Int32.Parse);
+            arr[2] = Array.ConvertAll("-1 -1 -1 -2 -3 -4".Split(' '), Int32.Parse);
+            arr[3] = Array.ConvertAll("-1 -9 -2 -4 -4 -5".Split(' '), Int32.Parse);
+            arr[4] = Array.ConvertAll("-7 -3 -3 -2 -9 -9".Split(' '), Int32.Parse);
+            arr[5] = Array.ConvertAll("-1 -3 -1 -2 -4 -5".Split(' '), Int32.Parse);
+
+            //parcourir patterns
+            int sumMax = 0;
+            bool changed = false;
+            int tempSum = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                //arr[i] = [0 1 0 1] 
+                for (int j = 0; j < 4; j++)
+                {
+                    tempSum = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]
+                        + arr[i + 1][j + 1] + arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+                    if (!changed || tempSum > sumMax)
+                    {
+                        changed = true;
+                        sumMax = tempSum;
+                    }
+
+                }
+
+                
+            }
+
+            Console.WriteLine(sumMax);
 
         }
 
