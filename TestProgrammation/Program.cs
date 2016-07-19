@@ -19,8 +19,51 @@ namespace TestProgrammation
             //Day6();
             //Day7();
             //Day8();
-            Day9();
+            //Day9();
+            //Day10();
+            Day11();
             Console.Read();
+        }
+
+        private static void Day11()
+        {
+            int[][] arr = new int[6][];
+            for (int arr_i = 0; arr_i < 6; arr_i++)
+            {
+                string[] arr_temp = "1 1 1 0 0 0".Split(' ');//Console.ReadLine().Split(' ');
+                arr[arr_i] = Array.ConvertAll(arr_temp, Int32.Parse);
+
+            }
+
+
+        }
+
+        private static void Day10()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            List<int> binarynumbers = new List<int>();
+            while (n > 0)
+            {
+                int reminder = n % 2;
+                binarynumbers.Add(reminder);
+                n = n / 2;
+            }
+            int maxNumber = 0;
+            int TempmaxNumber = 0;
+            for (int i = 0; i < binarynumbers.Count; i++)
+            {
+                if (binarynumbers[i] == 1)
+                {
+                    TempmaxNumber++;
+                    if (TempmaxNumber > maxNumber)
+                        maxNumber = TempmaxNumber;
+                }
+                else if (binarynumbers[i] == 0)
+                    TempmaxNumber = 0;
+            }
+
+            Console.WriteLine(maxNumber);
         }
 
         private static void Day9()
