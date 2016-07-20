@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestProgrammation.Day13;
+using TestProgrammation.Day14;
 
 namespace TestProgrammation
 {
@@ -22,8 +24,32 @@ namespace TestProgrammation
             //Day9();
             //Day10();
             //Day11();
-            Day12();
+            //Day12();
+            //Day13();
+            Day14();
             Console.Read();
+        }
+
+        private static void Day14()
+        {
+            Convert.ToInt32(Console.ReadLine());
+
+            int[] a = Console.ReadLine().Split(' ').Select(x => Convert.ToInt32(x)).ToArray();
+
+            Difference d = new Difference(a);
+
+            d.computeDifference();
+
+            Console.Write(d.maximumDifference);
+        }
+
+        private static void Day13()
+        {
+            String title = Console.ReadLine();
+            String author = Console.ReadLine();
+            int price = Int32.Parse(Console.ReadLine());
+            Book new_novel = new MyBook(title, author, price);
+            new_novel.display();
         }
 
         private static void Day12()
