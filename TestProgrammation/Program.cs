@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TestProgrammation.Day13;
 using TestProgrammation.Day14;
+using TestProgrammation.Day15;
+using TestProgrammation.Day17;
+using TestProgrammation.Day19;
 
 namespace TestProgrammation
 {
@@ -26,10 +29,175 @@ namespace TestProgrammation
             //Day11();
             //Day12();
             //Day13();
-            Day14();
+            //Day14();
+            //Day15();
+            //Day16();
+            //Day17();
+            //Day18();
+            //Day19();
+            Day20();       
             Console.Read();
         }
 
+        private static void Day20()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] a_temp = Console.ReadLine().Split(' ');
+            int[] a = Array.ConvertAll(a_temp, Int32.Parse);
+
+            int endPosition = a.Length - 1;
+            int swapPosition;
+            int swapCount = 0;
+            while (endPosition > 0)
+            {
+                swapPosition = 0;
+
+                for (int i = 0; i < endPosition; i++)
+                {
+                    if (a[i] > a[i + 1])
+                    {
+                        int tmp = a[i];
+                        a[i] = a[i + 1];
+                        a[i + 1] = tmp;
+                        swapPosition = i;
+                        swapCount++;
+                    }
+
+                }
+                endPosition = swapPosition;
+            }
+
+            //foreach(int i in a)
+            //    Console.WriteLine(i);
+            Console.WriteLine("Array is sorted in {0} swaps.", swapCount);
+            Console.WriteLine("First Element: " + a[0]);
+            Console.WriteLine("Last Element: " + a[a.Length-1]);
+
+
+
+        }
+
+        private static void Day19()
+        {
+            int n = Int32.Parse(Console.ReadLine());
+            AdvancedArithmetic myCalculator = new Day19.Calculator();
+            int sum = myCalculator.divisorSum(n);
+            Console.WriteLine("I implemented: AdvancedArithmetic\n" + sum);
+
+        }
+
+        private static void Day18()
+        {
+            string s = Console.ReadLine();
+
+            // create the Solution class object p.
+            Day18.Solution obj = new Day18.Solution();
+
+            // push/enqueue all the characters of string s to stack.
+            foreach (char c in s)
+            {
+                obj.pushCharacter(c);
+                obj.enqueueCharacter(c);
+            }
+
+            bool isPalindrome = true;
+
+            // pop the top character from stack.
+            // dequeue the first character from queue.
+            // compare both the characters.
+            for (int i = 0; i < s.Length / 2; i++)
+            {
+                if (obj.popCharacter() != obj.dequeueCharacter())
+                {
+                    isPalindrome = false;
+
+                    break;
+                }
+            }
+
+            // finally print whether string s is palindrome or not.
+            if (isPalindrome)
+            {
+                Console.Write("The word, {0}, is a palindrome.", s);
+            }
+            else
+            {
+                Console.Write("The word, {0}, is not a palindrome.", s);
+            }
+        }
+
+        private static void Day17()
+        {
+            Day17.Calculator myCalculator = new Day17.Calculator();
+            int T = Int32.Parse(Console.ReadLine());
+            while (T-- > 0)
+            {
+                string[] num = Console.ReadLine().Split();
+                int n = int.Parse(num[0]);
+                int p = int.Parse(num[1]);
+                try
+                {
+                    int ans = myCalculator.power(n, p);
+                    Console.WriteLine(ans);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+
+                }
+            }
+        }
+
+        private static void Day16()
+        {
+            try
+            {
+                string S = Console.ReadLine();
+                Console.WriteLine(Int32.Parse(S));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Bad String");
+            }
+
+        }
+        #region day15
+        public static Node insert(Node head, int data)
+        {
+            //Complete this method
+            Node n= new Node(data);
+            if (head == null)
+               head = n;
+            else if (head.next == null)
+                 head.next = n;
+            else
+                insert(head.next, data);
+
+            return head;
+        }
+
+        public static void display(Node head)
+        {
+            Node start = head;
+            while (start != null)
+            {
+                Console.Write(start.data + " ");
+                start = start.next;
+            }
+        }
+
+        private static void Day15()
+        {
+            Node head = null;
+            int T = Int32.Parse(Console.ReadLine());
+            while (T-- > 0)
+            {
+                int data = Int32.Parse(Console.ReadLine());
+                head = insert(head, data);
+            }
+            display(head);
+        }
+        #endregion
         private static void Day14()
         {
             Convert.ToInt32(Console.ReadLine());
