@@ -35,8 +35,27 @@ namespace TestProgrammation
             //Day17();
             //Day18();
             //Day19();
-            Day20();       
+            //Day20();
+            Day21();
+
             Console.Read();
+        }
+
+        private static void Day21()
+        {
+            int[] vInt = new int[] { 1, 2, 3 };
+            string[] vString = new string[] { "Hello", "World" };
+
+            printArray<int>(vInt);
+            printArray<string>(vString);
+        }
+
+        private static void printArray<T>(T[] table)
+        {
+            for (int i = 0; i < table.Length; i++)
+            {
+                Console.WriteLine(table[i].ToString());
+            }
         }
 
         private static void Day20()
