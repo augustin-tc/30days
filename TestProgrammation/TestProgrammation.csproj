@@ -51,6 +51,8 @@
     <Compile Include="Day17\Calculator.cs" />
     <Compile Include="Day18\Solution.cs" />
     <Compile Include="Day19\Calculator.cs" />
+    <Compile Include="Day22\Day22.cs" />
+    <Compile Include="Day22\Node.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

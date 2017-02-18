@@ -36,9 +36,15 @@ namespace TestProgrammation
             //Day18();
             //Day19();
             //Day20();
-            Day21();
+            //Day21();
+            ExecDay22();
 
             Console.Read();
+        }
+
+        private static void ExecDay22()
+        {
+           var day22 =  new Day22.Day22();
         }
 
         private static void Day21()
