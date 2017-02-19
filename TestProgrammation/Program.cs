@@ -37,9 +37,21 @@ namespace TestProgrammation
             //Day19();
             //Day20();
             //Day21();
-            ExecDay22();
+            //ExecDay22();
+            //ExecDay23();
+            ExecDay24();
 
             Console.Read();
+        }
+
+        private static void ExecDay24()
+        {
+            var day24 = new Day24.Day24();
+        }
+
+        private static void ExecDay23()
+        {
+            var day23 = new Day23.Day23();
         }
 
         private static void ExecDay22()
@@ -101,6 +113,7 @@ namespace TestProgrammation
 
 
         }
+
 
         private static void Day19()
         {
